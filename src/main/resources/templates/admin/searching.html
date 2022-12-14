@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск</title>
+</head>
+<body>
+<h3>Поиск</h3>
+<form method="post" th:action="@{/admin/sorting_and_searсhing}">
+
+    <label for="value">Введите 4 последних значения номера заказа: </label>
+    <input type="text" name="value" id="value">
+    <br>
+    <br>
+    <button type="submit">Поиск или фильтрация</button>
+</form>
+<h3>Результат:</h3>
+<div th:each="element : ${oredr}">
+
+    <h3 th:text="'Заказ № ' + ${element.getNumber()}"></h3>
+    <img th:src="'/img/' + ${element.getProduct().imageList[0].getFileName()}" width="300px">
+    <p th:text="'Наименование: ' + ${element.getProduct().getTitle()}"></p>
+    <p th:text="'Количество: ' + ${element.getCount()}"></p>
+    <p th:text="'Цена: ' + ${element.getPrice()}"></p>
+    <p th:text="'Дата заказа: ' + ${#temporals.format(element.getDateTime(), 'dd-MMM-yyyy')}"></p>
+    <p th:text="'Статус: ' + ${element.getStatus()}"></p>
+    <hr>
+</div>
+</body>
+</html>

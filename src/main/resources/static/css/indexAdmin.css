@@ -1,0 +1,44 @@
+body{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+
+.nam{
+    text-align: center;
+    font-size: 30px;
+}
+
+input{
+    color: brown;
+}
+
+a{
+    text-decoration: none;
+    border: 1px solid black;
+    background-color: olivedrab;
+    color: #ffe6c7;
+    padding: 3px;
+}
+
+.cart{
+    width: 300px;
+
+}
+
+.element{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+}
+
+.bod{
+    margin-top: 40px;
+}
+
+.text{
+    border: none;
+    padding: 0;
+    background-color: white;
+    color: brown;
+}

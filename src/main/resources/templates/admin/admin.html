@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Администратор</title>
+    <link th:href="@{/css/indexAdmin.css}" type="text/css" rel="stylesheet">
+</head>
+<body>
+<h3 class="nam">Личный кабинет администратора</h3>
+<form th:method="POST" th:action="@{/logout}">
+    <input type="submit" value="Выйти из личного кабинета">
+</form>
+<br>
+<br>
+<h3>Пользователи: </h3>
+
+<a th:href="@{/admin/listUser}" class="but2">Список пользователей</a>
+<br>
+<br>
+<a th:href="@{/admin/userOrders}" class="but2">Заказы пользователей</a>
+<br>
+<br>
+<hr>
+<a href="/admin/product/add">Добавить товар</a>
+<h3>Каталог товаров: </h3>
+<div class="element">
+<div th:each="product : ${products}" class="cart">
+    <img th:src="'/img/' + ${product.imageList[0].getFileName()}" width="300px">
+    <p th:text="'Наименование: ' + ${product.getTitle()}"></p>
+    <p th:text="'Описание: ' + ${product.getDescription()}"></p>
+    <p th:text="'Цена: ' + ${product.getPrice()}"></p>
+    <p th:text="'Производитель: ' + ${product.getWarehouse()}"></p>
+    <p th:text="'Бренд: ' + ${product.getSeller()}"></p>
+    <p th:text="'Вид сыра: ' + ${product.getCategory().getName()}"></p>
+    <a th:href="@{/admin/product/edit/{id}(id=${product.getId()})}">Редактировать товар</a>
+    <a th:href="@{/admin/product/delete/{id}(id=${product.getId()})}">Удалить товар</a>
+    <br>
+    <hr>
+    <br>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link th:href="@{/css/styleInfiUser.css}" type="text/css" rel="stylesheet">
+  <title>Информация о пользователе</title>
+</head>
+<body>
+<h3>Информация о пользователе</h3>
+<p th:text="'ID Пользователя: ' + ${user.getId()}"></p>
+<p th:text="'Логин пользователя: ' + ${user.getLogin()}"></p>
+<p th:text="'Пароль пользователя: ' + ${user.getPassword()}"></p>
+<p th:text="'Роль пользователя: ' + ${user.getRole()}"></p>
+<br>
+<a th:href="@{/admin/edit/{id}(id=${user.getId()})}">Редактировать пользователя</a>
+<a th:href="@{/admin/delete/{id}(id=${user.getId()})}">Удалить пользователя</a>
+</body>
+</html>

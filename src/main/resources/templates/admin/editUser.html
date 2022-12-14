@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link th:href="@{/css/styleRed.css}" type="text/css" rel="stylesheet">
+  <title>Редактирование пользователя</title>
+</head>
+<body>
+<h3>Редактирование пользователей</h3>
+<form method="post" th:action="@{/admin/edit/{id}(id=${editUser.getId()})}" th:object="${editUser}">
+  <label for="role">Смените роль: </label>
+  <select name="role" th:field="*{role}" id="role">
+    <div th:each="element : ${role}">
+      <option th:text="${element.getRole()}" th:value="${element.getId()}"></option>
+    </div>
+  <br>
+  <input type="submit" value="Редактировать">
+</form>
+</body>
+</html>

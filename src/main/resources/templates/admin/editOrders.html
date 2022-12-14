@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link th:href="@{/css/styleRed.css}" type="text/css" rel="stylesheet">
+  <title>Редактирование Заказов</title>
+</head>
+<body>
+
+
+
+<h3>Редактирование заказов</h3>
+<form method="post" th:action="@{/admin/editOrder/{id}(id=${editOrder.getId()})}" th:object="${editOrder}">
+  <label for="status">Измените статус: --> </label>
+  <input type="text" th:field="*{status}" placeholder="Статус" id="status">
+
+
+<!--    -->
+<!--    <div th:each="order : ${orders}">-->
+<!--      <h3 th:text="'Заказ № ' + ${order.getNumber()}"></h3>-->
+<!--      <img th:src="'/img/' + ${order.getProduct().imageList[0].getFileName()}" width="300px">-->
+<!--      <p th:text="'Наименование: ' + ${order.getProduct().getTitle()}"></p>-->
+<!--      <p th:text="'Количество: ' + ${order.getCount()}"></p>-->
+<!--      <p th:text="'Цена: ' + ${order.getPrice()}"></p>-->
+<!--      <p th:text="'Дата заказа: ' + ${#temporals.format(order.getDateTime(), 'dd-MMM-yyyy')}"></p>-->
+<!--      <p th:text="'Статус: ' + ${order.getStatus()}"></p>-->
+<!--      <hr>-->
+<!--    </div>-->
+  <!--  <label for="title">Введите наименование: </label>-->
+<!--  <input type="text" th:field="*{title}" placeholder="Наименование" id="title">-->
+<!--  <div style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>-->
+<!--  <br>-->
+<!--  <br>-->
+<!--  <label for="description">Введите описание: </label>-->
+<!--  <textarea th:field="*{description}" placeholder="Описание" id="description"></textarea>-->
+<!--  <div style="color: red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>-->
+<!--  <br>-->
+<!--  <br>-->
+<!--  <label for="price">Введите цену: </label>-->
+<!--  <input type="number" th:field="*{price}" min="1" step="0.00" id="price">-->
+<!--  <div style="color: red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>-->
+<!--  <br>-->
+<!--  <br>-->
+<!--  <label for="warehouse">Введите информацию о складе: </label>-->
+<!--  <input type="text" th:field="*{warehouse}" placeholder="Склад" id="warehouse">-->
+<!--  <div style="color: red" th:if="${#fields.hasErrors('warehouse')}" th:errors="*{warehouse}"></div>-->
+<!--  <br>-->
+<!--  <br>-->
+<!--  <label for="category">Выберите категорию товара: </label>-->
+<!--  <select name="category" th:field="*{category}" id="category">-->
+<!--    <div th:each="element : ${category}">-->
+<!--      <option th:text="${element.getName()}" th:value="${element.getId()}"></option>-->
+<!--    </div>-->
+<!--  </select>-->
+<!--  <br>-->
+<!--  <br>-->
+<!--  <label for="seller">Введите данные о продавце: </label>-->
+<!--  <textarea th:field="*{seller}" placeholder="Продавец" id="seller"></textarea>-->
+<!--  <div style="color: red" th:if="${#fields.hasErrors('seller')}" th:errors="*{seller}"></div>-->
+<!--  <br>-->
+<!--  <br>-->
+  <input type="submit" value="Редактировать">
+</form>
+</body>
+</html>

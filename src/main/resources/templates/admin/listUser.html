@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Пользователи</title>
+  <link th:href="@{/css/styleUser.css}" type="text/css" rel="stylesheet">
+</head>
+<body>
+<h3>Список пользователей: </h3>
+<div th:each="element : ${user}">
+  <a th:href="@{/admin/info/{id}(id=${element.getId()})}" th:text="${element.getLogin()}"></a>
+
+</div>
+<br>
+<br>
+<a href="/auth/registration" class="but2">Добавить пользователя</a>
+</body>
+</body>
+</html>
